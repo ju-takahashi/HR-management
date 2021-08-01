@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Member } from '../member';
+import { MemberService } from '../member.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,17 +8,17 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
-  members: Hero[] = [];
+  members: Member[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private memberService: MemberService) { }
 
   ngOnInit() {
-    this.getHeroes();
+    this.getMemberes();
   }
 
-  getHeroes(): void {
-    // トップヒーローの4つ（2番目、3番目、4番目、5番目）を返却
-    this.heroService.getHeroes()
+  getMemberes(): void {
+    // トップ社員情報の4つ（2番目、3番目、4番目、5番目）を返却
+    this.memberService.getMemberes()
       .subscribe(members => this.members = members.slice(1, 5));
   }
 }

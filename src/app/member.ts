@@ -1,4 +1,4 @@
-export interface Hero {
+export interface Member {
     id: number;
     name: string;
   }

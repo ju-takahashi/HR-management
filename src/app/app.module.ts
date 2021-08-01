@@ -3,23 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent } from './members/members.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MemberesComponent } from './members/members.component';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { MemberSearchComponent } from './member-search/member-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
+    MemberesComponent,
+    MemberDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    MemberSearchComponent
   ],
   imports: [
     BrowserModule,

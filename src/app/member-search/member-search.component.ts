@@ -6,19 +6,19 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { Member } from '../member';
+import { MemberService } from '../member.service';
 
 @Component({
-  selector: 'app-hero-search',
-  templateUrl: './hero-search.component.html',
-  styleUrls: [ './hero-search.component.scss' ]
+  selector: 'app-member-search',
+  templateUrl: './member-search.component.html',
+  styleUrls: [ './member-search.component.scss' ]
 })
-export class HeroSearchComponent implements OnInit {
-  members$!: Observable<Hero[]>;
+export class MemberSearchComponent implements OnInit {
+  members$!: Observable<Member[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private heroService: HeroService) {}
+  constructor(private memberService: MemberService) {}
 
   // 検索語をobservableストリームにpushする
   search(term: string): void {
@@ -34,7 +34,7 @@ export class HeroSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // 検索語が変わる度に、新しい検索observableにスイッチする
-      switchMap((term: string) => this.heroService.searchHeroes(term)),
+      switchMap((term: string) => this.memberService.searchMemberes(term)),
     );
   }
 }

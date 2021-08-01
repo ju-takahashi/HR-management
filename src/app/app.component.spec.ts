@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-tour-of-members'`, () => {
+  it(`should have as title 'hr-management'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-tour-of-members');
+    expect(app.title).toEqual('hr-management');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular-tour-of-members app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('hr-management app is running!');
   });
 });

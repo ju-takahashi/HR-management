@@ -1,0 +1,10 @@
+<div *ngIf="member">
+  <h2>{{member.name}} さんの詳細情報</h2>
+  <div><span>社員ID: </span>{{member.id}}</div>
+  <div>
+    <label for="member-name">社員名: </label>
+    <input id="member-name" [(ngModel)]="member.name" placeholder="Member name"/>
+  </div>
+  <button (click)="goBack()">戻る</button>
+  <button (click)="save()">保存</button>
+</div>
