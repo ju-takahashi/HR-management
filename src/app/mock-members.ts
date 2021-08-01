@@ -1,14 +1,14 @@
 import { Member } from './member';
 
 export const MEMBERS: Member[] = [
-  { id: 11, name: 'Dr Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+  { id: 11, name: 'テスト太郎' },
+  { id: 12, name: 'テスト花子' },
+  { id: 13, name: '山田太郎' },
+  { id: 14, name: '北海道道三郎' },
+  { id: 15, name: '岩手いわ' },
+  { id: 16, name: '沖縄縄子' },
+  { id: 17, name: '新潟潟子' },
+  { id: 18, name: '織田信長' },
+  { id: 19, name: '豊臣秀吉' },
+  { id: 20, name: '徳川家康' }
 ];
