@@ -8,7 +8,7 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  members: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 
@@ -19,6 +19,6 @@ export class DashboardComponent implements OnInit {
   getHeroes(): void {
     // トップヒーローの4つ（2番目、3番目、4番目、5番目）を返却
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+      .subscribe(members => this.members = members.slice(1, 5));
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { MEMBERS } from './mock-members';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -11,7 +11,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // Web APIのURL
+  private membersUrl = 'api/members';  // Web APIのURL
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,16 +23,16 @@ export class HeroService {
 
   /** サーバーからヒーローを取得する */
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+    return this.http.get<Hero[]>(this.membersUrl)
       .pipe(
-        tap(heroes => this.log('fetched heroes')),
+        tap(members => this.log('fetched members')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
 
   /** IDによりヒーローを取得する。見つからなかった場合は404を返却する。 */
   getHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.membersUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
@@ -41,7 +41,7 @@ export class HeroService {
 
   /** POST: サーバーに新しいヒーローを登録する */
   addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+    return this.http.post<Hero>(this.membersUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
@@ -49,7 +49,7 @@ export class HeroService {
 
   /** PUT: サーバー上でヒーローを更新 */
   updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    return this.http.put(this.membersUrl, hero, this.httpOptions).pipe(
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
@@ -57,7 +57,7 @@ export class HeroService {
 
   /** DELETE: サーバーからヒーローを削除 */
   deleteHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.membersUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted hero id=${id}`)),
@@ -71,8 +71,8 @@ export class HeroService {
       // 検索語がない場合、空のヒーロー配列を返す
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`found heroes matching "${term}"`)),
+    return this.http.get<Hero[]>(`${this.membersUrl}/?name=${term}`).pipe(
+      tap(_ => this.log(`found members matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }

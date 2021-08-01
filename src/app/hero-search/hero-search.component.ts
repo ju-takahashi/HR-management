@@ -15,7 +15,7 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './hero-search.component.scss' ]
 })
 export class HeroSearchComponent implements OnInit {
-  heroes$!: Observable<Hero[]>;
+  members$!: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private heroService: HeroService) {}
@@ -26,7 +26,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroes$ = this.searchTerms.pipe(
+    this.members$ = this.searchTerms.pipe(
       // 各キーストロークの後、検索前に300ms待つ
       debounceTime(300),
 
