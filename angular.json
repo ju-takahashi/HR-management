@@ -78,7 +78,8 @@
               "browserTarget": "hr-management:build:production"
             },
             "development": {
-              "browserTarget": "hr-management:build:development"
+              "browserTarget": "hr-management:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
