@@ -30,7 +30,7 @@ export class MemberService {
       );
   }
 
-  /** IDにより社員情報を取得する。見つからなかった場合は404を返却する。 */
+  /** IDにより社員情報を取得する。 */
   getMember(id: number): Observable<Member> {
     const url = `${this.membersUrl}/${id}`;
     return this.http.get<Member>(url).pipe(
@@ -71,8 +71,9 @@ export class MemberService {
       // 検索語がない場合、空の社員情報配列を返す
       return of([]);
     }
+
     return this.http.get<Member[]>(`${this.membersUrl}/?name=${term}`).pipe(
-      tap(_ => this.log(`"${term}"に一致する社員情報が見つかりました。`)),
+      tap(members => this.log(`"${term}"に一致する社員情報が${members == null ? 0 : members.length.toString()}件見つかりました。`)),
       catchError(this.handleError<Member[]>('searchMemberes', []))
     );
   }
