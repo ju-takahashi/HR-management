@@ -5,6 +5,10 @@
     <label for="member-name">社員名: </label>
     <input id="member-name" [(ngModel)]="member.name" placeholder="Member name"/>
   </div>
+  <div>
+    <label for="member-joinDate">入社年月日: </label>
+    <input id="member-joinDate" [(ngModel)]="member.joinDate" placeholder="YYYY/MM/DD"/>
+  </div>
   <button (click)="goBack()">戻る</button>
   <button (click)="save()">保存</button>
 </div>
